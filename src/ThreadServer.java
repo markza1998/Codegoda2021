@@ -17,7 +17,7 @@ public class ThreadServer {
             Thread t = new Thread(() -> {
                 try (
                         PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-                        Scanner in = new Scanner(clientSocket.getInputStream());
+                        Scanner in = new Scanner(clientSocket.getInputStream())
                 ) {
                     while (in.hasNextLine()) {
                         String input = in.nextLine();
@@ -25,7 +25,7 @@ public class ThreadServer {
                             break;
                         }
                         System.out.println("Received from client: " + input);
-                        out.println("receive");
+                        out.println("receive from server: " + input);
                     }
                 } catch (IOException e) { }
             });
